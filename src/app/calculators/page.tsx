@@ -3,17 +3,14 @@ import CommonAppLayout from '@/components/common-app-layout';
 import Container from '@cloudscape-design/components/container';
 import Header from '@cloudscape-design/components/header';
 import SpaceBetween from '@cloudscape-design/components/space-between';
-import { useState } from 'react';
 
 export default function Home() {
-  const [value, setValue] = useState('');
-
   return (
-    <CommonAppLayout activeHref='/'>
+    <CommonAppLayout activeHref='/calculators'>
       <SpaceBetween size="m">
-        <Header variant="h2">Hello World!</Header>
+        <Header variant="h2">Calculators!</Header>
         <Container>
-          Coming soon :)
+            Calculators, coming soon!
         </Container>
       </SpaceBetween>
     </CommonAppLayout>
