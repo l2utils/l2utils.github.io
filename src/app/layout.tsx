@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import '@cloudscape-design/global-styles/index.css';
+import CommonAppLayout from "@/components/common-app-layout";
 
 export const metadata: Metadata = {
   title: "L2Utils",
@@ -13,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><CommonAppLayout>{children}</CommonAppLayout></body>
     </html>
   );
 }

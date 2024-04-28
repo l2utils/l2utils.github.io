@@ -1,3 +1,4 @@
+'use client';
 import { AppLayout, ContentLayout, Header } from "@cloudscape-design/components";
 import I18nProvider from "@cloudscape-design/components/i18n";
 import messages from "@cloudscape-design/components/i18n/messages/all.all";
@@ -18,6 +19,7 @@ export default function CommonAppLayout({children}: PropsWithChildren<CommonAppL
           contentType="form"
           breadcrumbs={<Breadcrumbs />}
           navigation={<Navigation />}
+          navigationHide={process.env.NODE_ENV === 'production'}
           navigationOpen={navigationOpen}
           onNavigationChange={(e) => setNavigationOpen(e.detail.open)}
           toolsHide={true}

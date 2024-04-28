@@ -1,3 +1,4 @@
+'use client';
 import { useContext, useLayoutEffect } from "react";
 import { BreadcrumbsContext } from "./provider";
 import { BreadcrumbItem } from "./types";
