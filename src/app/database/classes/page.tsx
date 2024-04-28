@@ -1,21 +1,19 @@
 'use client';
-import CommonAppLayout from '@/components/common-app-layout';
+import Breadcrumb from '@/components/breadcrumbs/breadcrumb';
 import Container from '@cloudscape-design/components/container';
 import Header from '@cloudscape-design/components/header';
 import SpaceBetween from '@cloudscape-design/components/space-between';
-import { useState } from 'react';
 
-export default function Home() {
-  const [value, setValue] = useState('');
-
+export default function Classes() {
   return (
-    <CommonAppLayout>
+    <>
+      <Breadcrumb text='Classes' href='/database/classes' />
       <SpaceBetween size="m">
-        <Header variant="h2">Hello World!</Header>
+        <Header variant="h2">Classes</Header>
         <Container>
-          Coming soon :)
+          Classes, coming soon!
         </Container>
       </SpaceBetween>
-    </CommonAppLayout>
+    </>
   )
 }

@@ -6,19 +6,18 @@ import Navigation from "./navigation";
 import BreadcrumbsProvider from "./breadcrumbs/provider";
 import Breadcrumbs from "./breadcrumbs";
 
-interface CommonAppLayoutProps {
-  activeHref: string;
-}
+interface CommonAppLayoutProps {}
 
-export default function CommonAppLayout({activeHref, children}: PropsWithChildren<CommonAppLayoutProps>) {
+export default function CommonAppLayout({children}: PropsWithChildren<CommonAppLayoutProps>) {
   const [navigationOpen, setNavigationOpen] = useState(true);
 
   return (
     <I18nProvider locale="en" messages={[messages]}>
       <BreadcrumbsProvider>
         <AppLayout
+          contentType="form"
           breadcrumbs={<Breadcrumbs />}
-          navigation={<Navigation activeHref={activeHref} />}
+          navigation={<Navigation />}
           navigationOpen={navigationOpen}
           onNavigationChange={(e) => setNavigationOpen(e.detail.open)}
           toolsHide={true}
