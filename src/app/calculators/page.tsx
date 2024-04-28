@@ -9,8 +9,7 @@ export default function Calculators() {
     <>
       <Breadcrumb text='Calculators' href='/calculators' />
       <SpaceBetween size="m">
-        <Header variant="h2">Calculators!</Header>
-        <Container>
+        <Container header={<Header variant="h2">Calculators!</Header>}>
             Calculators, coming soon!
         </Container>
       </SpaceBetween>

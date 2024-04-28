@@ -6,8 +6,7 @@ import SpaceBetween from '@cloudscape-design/components/space-between';
 export default function Database() {
   return (
     <SpaceBetween size="m">
-      <Header variant="h2">Database</Header>
-      <Container>
+      <Container header={<Header variant="h2">Database</Header>}>
           Database of skills, items...etc., coming soon!
       </Container>
     </SpaceBetween>

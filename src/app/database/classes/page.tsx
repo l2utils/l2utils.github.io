@@ -9,8 +9,7 @@ export default function Classes() {
     <>
       <Breadcrumb text='Classes' href='/database/classes' />
       <SpaceBetween size="m">
-        <Header variant="h2">Classes</Header>
-        <Container>
+        <Container header={<Header variant="h2">Classes</Header>}>
           Classes, coming soon!
         </Container>
       </SpaceBetween>
