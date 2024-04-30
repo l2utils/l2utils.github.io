@@ -12,7 +12,7 @@ import {
   SpaceBetween,
   Table,
 } from "@cloudscape-design/components";
-import { useEffect, useRef, useState } from "react";
+import { FormEventHandler, useEffect, useRef, useState } from "react";
 import { v4 as uuid } from "uuid";
 
 interface Item {
@@ -48,68 +48,70 @@ export default function CostBenefitAnalysis() {
   });
   const nameInputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    nameInputRef.current?.focus();
+  }, []);
+
+  const handleFormSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    setAllItems((items) => [...items, { id: uuid(), name, cost, damage }]);
+    setName("");
+    setCost(0);
+    setDamage(0);
+    nameInputRef.current?.focus();
+  };
+
   return (
     <SpaceBetween size="l">
-      <Form
-        header={
-          <Header
-            variant="h1"
-            description="Whether something is worth the upgrade"
-          >
-            Cost benefit analysis
-          </Header>
-        }
-        actions={
-          <SpaceBetween size="xs">
-            <Button
-              variant="primary"
-              disabled={!name || !cost || !damage}
-              onClick={() => {
-                setAllItems((items) => [
-                  ...items,
-                  { id: uuid(), name, cost, damage },
-                ]);
-                setName("");
-                setCost(0);
-                setDamage(0);
-                nameInputRef.current?.focus();
-              }}
+      <form onSubmit={handleFormSubmit}>
+        <Form
+          header={
+            <Header
+              variant="h1"
+              description="Whether something is worth the upgrade"
             >
-              Calculate
-            </Button>
-          </SpaceBetween>
-        }
-      >
-        <Breadcrumb
-          text="Cost benefit analysis"
-          href="/calculators/cost-benefit-analysis"
-        />
-        <Container>
-          <SpaceBetween size="l">
-            <FormField label="Item/Skill name">
-              <Input
-                ref={nameInputRef}
-                value={name}
-                onChange={(e) => setName(e.detail.value)}
-              />
-            </FormField>
-            <FormField label="Cost">
-              <Input
-                type="number"
-                value={String(cost)}
-                onChange={(e) => setCost(Number(e.detail.value))}
-              />
-            </FormField>
-            <FormField label="Increase in damage (%)">
-              <Input
-                type="number"
-                value={String(damage)}
-                onChange={(e) => setDamage(Number(e.detail.value))}
-              />
-            </FormField>
-          </SpaceBetween>
-        </Container>
-      </Form>
+              Cost benefit analysis
+            </Header>
+          }
+          actions={
+            <SpaceBetween size="xs">
+              <Button variant="primary" disabled={!name || !cost || !damage}>
+                Calculate
+              </Button>
+            </SpaceBetween>
+          }
+        >
+          <Breadcrumb
+            text="Cost benefit analysis"
+            href="/calculators/cost-benefit-analysis"
+          />
+          <Container>
+            <SpaceBetween size="l">
+              <FormField label="Item/Skill name">
+                <Input
+                  ref={nameInputRef}
+                  value={name}
+                  onChange={(e) => setName(e.detail.value)}
+                />
+              </FormField>
+              <FormField label="Cost">
+                <Input
+                  type="number"
+                  value={String(cost)}
+                  onChange={(e) => setCost(Number(e.detail.value))}
+                />
+              </FormField>
+              <FormField label="Increase in damage (%)">
+                <Input
+                  type="number"
+                  value={String(damage)}
+                  onChange={(e) => setDamage(Number(e.detail.value))}
+                />
+              </FormField>
+            </SpaceBetween>
+          </Container>
+        </Form>
+      </form>
       <Table
         variant="container"
         header={
