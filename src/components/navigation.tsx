@@ -7,7 +7,9 @@ export default function Navigation() {
 
   return <SideNavigation activeHref={pathname} items={[
     {type: 'link', text: 'Home', href:"/"},
-    {type: 'link', text: 'Calculators', href: "/calculators"},
+    {type: 'expandable-link-group', text: 'Calculators', href: "/calculators", items: [
+      {type: 'link', text: 'Cost benefit analysis', href: '/calculators/cost-benefit-analysis'},
+    ]},
     {type: 'expandable-link-group', text: 'Database', href: "/database", items: [
       {type: 'link', text: 'Classes', href: '/database/classes'},
     ]},

@@ -1,14 +1,14 @@
 'use client';
+import { ContentLayout } from '@cloudscape-design/components';
 import Container from '@cloudscape-design/components/container';
 import Header from '@cloudscape-design/components/header';
-import SpaceBetween from '@cloudscape-design/components/space-between';
 
 export default function Database() {
   return (
-    <SpaceBetween size="m">
-      <Container header={<Header variant="h2">Database</Header>}>
+    <ContentLayout header={<Header variant='h1'>Database</Header>}>
+      <Container>
           Database of skills, items...etc., coming soon!
       </Container>
-    </SpaceBetween>
+    </ContentLayout>
   )
 }

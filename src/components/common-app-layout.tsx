@@ -23,11 +23,7 @@ export default function CommonAppLayout({children}: PropsWithChildren<CommonAppL
           navigationOpen={navigationOpen}
           onNavigationChange={(e) => setNavigationOpen(e.detail.open)}
           toolsHide={true}
-          content={
-            <ContentLayout header={
-              <Header variant="h1" description="Welcome to L2Utils, home of all Lineage 2 related utilities.">L2Utils</Header>
-            }>{children}</ContentLayout>
-          }
+          content={children}
         />
       </BreadcrumbsProvider>
     </I18nProvider>
