@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import '@cloudscape-design/global-styles/index.css';
+import "@cloudscape-design/global-styles/index.css";
 import CommonAppLayout from "@/components/common-app-layout";
 
 export const metadata: Metadata = {
@@ -14,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body><CommonAppLayout>{children}</CommonAppLayout></body>
+      <body>
+        <CommonAppLayout>{children}</CommonAppLayout>
+      </body>
     </html>
   );
 }

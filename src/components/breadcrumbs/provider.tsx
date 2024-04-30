@@ -1,4 +1,10 @@
-import { Dispatch, PropsWithChildren, SetStateAction, createContext, useState } from "react";
+import {
+  Dispatch,
+  PropsWithChildren,
+  SetStateAction,
+  createContext,
+  useState,
+} from "react";
 import { BreadcrumbItems } from "./types";
 
 interface Context {
@@ -11,12 +17,14 @@ export const BreadcrumbsContext = createContext<Context>({
   setItems: () => {},
 });
 
-export default function BreadcrumbsProvider({children}: PropsWithChildren) {
+export default function BreadcrumbsProvider({ children }: PropsWithChildren) {
   const [items, setItems] = useState<BreadcrumbItems>([
-    { text: 'Home', href: '/' },
+    { text: "Home", href: "/" },
   ]);
 
-  return <BreadcrumbsContext.Provider value={{items, setItems}}>
-    {children}
-  </BreadcrumbsContext.Provider>
+  return (
+    <BreadcrumbsContext.Provider value={{ items, setItems }}>
+      {children}
+    </BreadcrumbsContext.Provider>
+  );
 }
