@@ -3,7 +3,7 @@ import { ContentLayout } from "@cloudscape-design/components";
 import Container from "@cloudscape-design/components/container";
 import Header from "@cloudscape-design/components/header";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <ContentLayout
       header={
