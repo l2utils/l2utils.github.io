@@ -19,7 +19,6 @@ export default function CommonAppLayout({children}: PropsWithChildren<CommonAppL
           contentType="form"
           breadcrumbs={<Breadcrumbs />}
           navigation={<Navigation />}
-          navigationHide={process.env.NODE_ENV === 'production'}
           navigationOpen={navigationOpen}
           onNavigationChange={(e) => setNavigationOpen(e.detail.open)}
           toolsHide={true}
